@@ -13,7 +13,6 @@ class PostTableViewCell: UITableViewCell{
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     
-    
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
@@ -24,7 +23,6 @@ class PostTableViewCell: UITableViewCell{
         return cell
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,7 +30,6 @@ class PostTableViewCell: UITableViewCell{
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

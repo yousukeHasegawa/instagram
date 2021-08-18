@@ -33,6 +33,7 @@
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="tBw-yo-xmQ"/>
                     <connections>
                         <outlet property="tableView" destination="9z9-kz-GcE" id="u7P-xo-g9i"/>
+                        <segue destination="kNS-Xn-dlx" kind="show" identifier="Comment" id="nVH-r8-V0k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8Q-Df-ZWi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -316,11 +317,79 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="77.678571428571431"/>
         </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="ftp-lY-G9y">
+            <objects>
+                <viewController storyboardIdentifier="Comment" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kNS-Xn-dlx" customClass="CommentViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p3l-Bc-btN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメントを入力してください。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGj-Ly-HM2">
+                                <rect key="frame" x="10" y="10" width="394" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZQW-A4-Zih"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bjy-MA-MKe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpb-pb-mbH">
+                                <rect key="frame" x="10" y="60" width="344" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Bes-gq-oTv"/>
+                                    <constraint firstAttribute="height" constant="40" id="rFC-oi-XcO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-7x-5mO">
+                                <rect key="frame" x="364" y="60" width="40" height="39.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="P6X-8Y-TXY"/>
+                                    <constraint firstAttribute="width" constant="40" id="QNY-4e-dxz"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="paperplane" catalog="system"/>
+                                <connections>
+                                    <action selector="tappedPlaneButton:" destination="kNS-Xn-dlx" eventType="touchUpInside" id="rnU-ZU-bEn"/>
+                                    <segue destination="FV7-g4-jdB" kind="unwind" identifier="Comment" unwindAction="unwind:" id="Wi6-4f-I6Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kDF-tL-UfG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vGj-Ly-HM2" firstAttribute="trailing" secondItem="Rps-7x-5mO" secondAttribute="trailing" id="3MP-hY-wQF"/>
+                            <constraint firstItem="vGj-Ly-HM2" firstAttribute="leading" secondItem="Vpb-pb-mbH" secondAttribute="leading" id="EK6-Ux-fMY"/>
+                            <constraint firstItem="kDF-tL-UfG" firstAttribute="trailing" secondItem="vGj-Ly-HM2" secondAttribute="trailing" constant="10" id="Hko-gu-Z2d"/>
+                            <constraint firstItem="vGj-Ly-HM2" firstAttribute="top" secondItem="kDF-tL-UfG" secondAttribute="top" constant="10" id="ZAD-DI-ACI"/>
+                            <constraint firstItem="vGj-Ly-HM2" firstAttribute="top" secondItem="kDF-tL-UfG" secondAttribute="top" constant="10" id="cqC-nr-cM0"/>
+                            <constraint firstItem="Vpb-pb-mbH" firstAttribute="top" secondItem="vGj-Ly-HM2" secondAttribute="bottom" constant="10" id="jeL-Xw-Gcs"/>
+                            <constraint firstItem="Rps-7x-5mO" firstAttribute="height" secondItem="Vpb-pb-mbH" secondAttribute="height" id="jl9-0B-X3I"/>
+                            <constraint firstItem="kDF-tL-UfG" firstAttribute="trailing" secondItem="Rps-7x-5mO" secondAttribute="trailing" constant="10" id="p6S-Pc-BkD"/>
+                            <constraint firstItem="Rps-7x-5mO" firstAttribute="leading" secondItem="Vpb-pb-mbH" secondAttribute="trailing" constant="10" id="rZb-1X-I5S"/>
+                            <constraint firstItem="Vpb-pb-mbH" firstAttribute="leading" secondItem="kDF-tL-UfG" secondAttribute="leading" constant="10" id="s3d-Su-sGQ"/>
+                            <constraint firstItem="vGj-Ly-HM2" firstAttribute="leading" secondItem="kDF-tL-UfG" secondAttribute="leading" constant="10" id="u1S-eY-d92"/>
+                            <constraint firstItem="Rps-7x-5mO" firstAttribute="centerY" secondItem="Vpb-pb-mbH" secondAttribute="centerY" id="uNc-Dz-3ch"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PD0-7B-hiS"/>
+                    <connections>
+                        <outlet property="commentTextField" destination="Vpb-pb-mbH" id="bkk-02-fN1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YlI-aX-gDg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="FV7-g4-jdB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-846.37681159420299" y="1664.7321428571429"/>
+        </scene>
     </scenes>
     <resources>
         <image name="btn" width="300" height="40"/>
         <image name="camera" width="25" height="25"/>
         <image name="home" width="25" height="25"/>
+        <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="setting" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
