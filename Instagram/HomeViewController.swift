@@ -125,7 +125,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
  
-        print("DEBUG_PRINT: likeボタンがタップされました。")
+        print("DEBUG_PRINT: Commentボタンがタップされました。")
  
             //遷移先のデータを特定する
             postID = postData.id
